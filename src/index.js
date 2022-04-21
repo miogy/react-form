@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 // component
 import AddApointment from './components/AddApointment'
+// AddApointment 만들고 가져오기 -> 들어가는위치에 <AddApointment />
+import Search from './components/search'
+// Search 만들고 가져오기 -> 들어가는 위치에 <Search />
 
 // source
 import { BiArchive } from "react-icons/bi";
@@ -20,6 +23,7 @@ function App(){
           <li>반복문</li>
         </ul>
       </div>
+      <Search />
     </article>
   )
 }
