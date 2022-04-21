@@ -5,6 +5,7 @@ import AddApointment from './components/AddApointment'
 // AddApointment 만들고 가져오기 -> 들어가는위치에 <AddApointment />
 import Search from './components/search'
 // Search 만들고 가져오기 -> 들어가는 위치에 <Search />
+import AddInfo from "./components/AddInfo"
 
 // source
 import { BiArchive } from "react-icons/bi";
@@ -19,11 +20,11 @@ function App(){
       </h3>
       <AddApointment />
       <div id="list">
+      <Search />
         <ul>
-          <li>반복문</li>
+          <AddInfo />
         </ul>
       </div>
-      <Search />
     </article>
   )
 }
