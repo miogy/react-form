@@ -1,4 +1,5 @@
 import { BiCaretDown, BiSearch } from "react-icons/bi"
+// 여러개 연결시 ,로 추가
 // import DropDown from './DropDown'
 // DropDown파일생성후 가져오기 <search안에 들어가는 항목>
 
