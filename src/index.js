@@ -26,8 +26,13 @@ function App(){
   // 4-1 useState 지정 search에 들어가는 query정리 
   let [query,setQuery] = useState('')
   // 4-2 filterAppointment 지정후 필터값 정리
+
+  // 6-2 sort의정리 sortBy: owenername과petname검색기준 지정 orderBy:오름차순 지정
+  let [sortBy,setSortBy] = useState('ownerName')
+  let [orderBy,setOrderBy] = useState('asc')
   const filterAppointment = appointmentList.filter(
   // 4-3 filter값으로 변경될 이름 지정후 반복문에 있는 appointment를 filterAppointment로 변경
+
     item => {
       // item : data.json의 데이터들
       return (
@@ -38,7 +43,11 @@ function App(){
         // 4-4 <Search />에 기본값, 변경값 정리
       )
     }
-  )
+  ).sort( (a,b) => {
+    let order = (orderBy === 'asc')? 1 : -1 ;
+    return(a[sortBy].toLowerCase() < b[sortBy].toLowerCase() ? -1 * order : 1* order)
+    // 6-3 조건문 정리
+  })
   // 2-2 callback 
   const fetchData = useCallback( () => {
     fetch('./data.json')
@@ -65,6 +74,10 @@ function App(){
       <Search 
       query = {query}
       onQueryChange = { myQuery => setQuery(myQuery)}
+      orderBy = {orderBy}
+      sortBy = {sortBy}
+      onSortByChange = {mySort => setSortBy(mySort)}
+      onOderByChange = {myOrder => setOrderBy(myOrder)}
       />
         <ul>
           {
