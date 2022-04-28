@@ -53,7 +53,14 @@ function App(){
       <h3>
         <BiArchive style={{color:'#d47776'}}/> 예약시스템
       </h3>
-      <AddApointment />
+      <AddApointment 
+      onSendAppointment={ 
+        myAppointment => setAppointmentList([...appointmentList,myAppointment])
+       }
+       lastId = {
+         appointmentList.reduce((max,item) => Number(item.id) > max ?Number(item.id) : max ,0)
+       }
+      />
       <div id="list">
       <Search 
       query = {query}
