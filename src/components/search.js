@@ -1,3 +1,4 @@
+
 import {useState} from 'react'
 import { BiCaretDown, BiSearch,BiCheck } from "react-icons/bi"
 //1-1 여러개 연결시 ,로 추가
@@ -9,6 +10,7 @@ function DropDown({toggleSort,sortBy,onSortByChange,orderBy,onOderByChange}){
     if(!toggleSort){
         return null
     }
+
     return (
         <ul>
             <li
