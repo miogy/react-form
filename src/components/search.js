@@ -1,4 +1,3 @@
-
 import {useState} from 'react'
 import { BiCaretDown, BiSearch,BiCheck } from "react-icons/bi"
 //1-1 여러개 연결시 ,로 추가
@@ -47,7 +46,6 @@ function Search({query,onQueryChange,sortBy,onSortByChange,orderBy,onOderByChang
     let [toggleSort,setToggleSort] = useState(false);
     // 2-1 useState설정 [초기값이름,변경값이름] = useState(false:기본값=보이지않음)
     // 2-2 적용할 button에 변경값적용 
-
     // 4-1 검색에 {초기값이름,변경값이름}
     // 4-2 onChage사용 event받고 onQueryChange(변경값)->target>value값을 이용할것을 지정
     // 4-3 본부index에 지정된 <search />에 지정값들 정리

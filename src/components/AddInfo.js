@@ -1,6 +1,4 @@
 import { BiTrash } from "react-icons/bi"
-// 사용할 아이콘
-
 
 function AddInfo({appointment,onDelectAppointment}){
 

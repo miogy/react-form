@@ -1,36 +1,21 @@
 import React,{useState,useEffect,useCallback} from 'react';
-// 2-1 변경되는 값 설정 - 추가 useState, useEffect(실행값,실행문), useCallback()
-// import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 // component
 import AddApointment from './components/AddApointment'
-// AddApointment 만들고 가져오기 -> 들어가는위치에 <AddApointment />
 import Search from './components/search'
-// Search 만들고 가져오기 -> 들어가는 위치에 <Search />
 import AddInfo from "./components/AddInfo"
-// AddInfo 만들어서 가져오기 -> 위치에 <AddInfo />
 
 // source
 import { BiArchive } from "react-icons/bi";
-// react-icons 사이트로 들어가서 가져오기
 import './index.css'
 
-// import appointData from './data.json'
-// json파일 (데이터베이스 정리)가져오기
-// appointData: json파일을 import하기위해 지정해주는 이름
-// 2-4 import data.json 지우기
-
-
-
 function App(){
-  // 2-2 useState 설정 'appointmentList'라는 이름으로 지정
   let [appointmentList,setAppointmentList] = useState([])
   
   // 4-1 useState 지정 search에 들어가는 query정리 
   let [query,setQuery] = useState('')
   // 4-2 filterAppointment 지정후 필터값 정리
-
   // 6-2 sort의정리 sortBy: owenername과petname검색기준 지정 orderBy:오름차순 지정
   let [sortBy,setSortBy] = useState('ownerName')
   let [orderBy,setOrderBy] = useState('asc')
@@ -52,6 +37,7 @@ function App(){
     return(a[sortBy].toLowerCase() < b[sortBy].toLowerCase() ? -1 * order : 1* order)
     // 6-3 조건문 정리
   })
+
   // 2-2 callback 
   const fetchData = useCallback( () => {
     fetch('./data.json')
@@ -96,7 +82,6 @@ function App(){
                 ))
               }
               />
-
             ))
           }
         </ul>
@@ -109,12 +94,10 @@ function App(){
     // appointData.map : json파일은 배열로 사용.
     // item(지정이름) => <AddInfo key값을 {item.id}로 받음
     // appointment : AddInfo에 json데이터를 받기위해 지정해주는 이름
-
     // appointment = {item} 여기서 item은 json의 데이터들을 지칭 =>item:appointment
 
     // 3-1 onDelectAppointment구조만들기
     // 반복문에서 onDelectAppointment설정 appointmentId(변경값이름)를지정후 변경값 설정에서 setAppointmentList.filter값()을 넣어줌 키값(data !== 변경값)
-
 
   )
 }
