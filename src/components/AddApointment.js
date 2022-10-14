@@ -3,7 +3,9 @@ import { Fragment } from "react";
 import { BiCalendarPlus } from "react-icons/bi";
 
 function AddWrite({toggleForm,formData,setFormData,formDataPublish}){
-    // formData,setFormData,formDataPublish추가
+
+    // formData,setFormData,formDataPublish 데이터 받아오기
+
     if(!toggleForm){
         return null
     }
@@ -59,7 +61,8 @@ function AddWrite({toggleForm,formData,setFormData,formDataPublish}){
                 </li>
             </ul>
             <p>
-                <button type="submit">
+                <button type="submit"
+                onClick={formDataPublish}>
                     예약하기
                 </button>
             </p>
@@ -67,7 +70,9 @@ function AddWrite({toggleForm,formData,setFormData,formDataPublish}){
     )
 }
 
-function AddApointment(){
+
+function AddApointment({onSendAppointment,lastId}){
+
     // 5-2 객체가 많으므로 불러올 배열을 만들어줌 (data.json참고)
     const clearData = {
         petName : '',
@@ -80,6 +85,8 @@ function AddApointment(){
     let [toggleForm,setToggleForm] = useState(false);
     // 5-1 form 데이터 생성
     let [formData,setFormData] = useState(clearData);
+
+    // 5-1 formDataPubllish지정
 
     function formDataPublish(){
         const formDataInfo ={
@@ -99,7 +106,9 @@ function AddApointment(){
             <h4 onClick={()=>{setToggleForm(!toggleForm)}}>
                 <BiCalendarPlus/> 예약하기
             </h4>
+
             <p>
+
                 <AddWrite 
                 toggleForm = {toggleForm}
 
@@ -107,7 +116,11 @@ function AddApointment(){
                 formDataPublish = {formDataPublish}
                 setFormData = {setFormData}
                 />
+
             </p>
+
+            
+
            
         </div>
     )
